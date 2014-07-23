@@ -42,8 +42,5 @@ def receive_emails():
         email_contents = email.message_from_string(email_string[0][1])
         body_text = email_contents.get_payload()[ 0 ].get_payload()
 
-
-
-
 if __name__ == "__main__":
     receive_emails()
