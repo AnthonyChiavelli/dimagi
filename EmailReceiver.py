@@ -3,6 +3,7 @@ import imaplib
 import getpass
 import email
 import datetime
+import re
 
 EMAIL_ADDRESS = "whereis.dimagi001@gmail.com"
 
@@ -39,6 +40,9 @@ def receive_emails():
     for email_id in email_ids[0].split():
         ret, email_string = imap_connection.fetch(str(email_id), '(RFC822)')
         email_contents = email.message_from_string(email_string[0][1])
+        body_text = email_contents.get_payload()[ 0 ].get_payload()
+
+
 
 
 if __name__ == "__main__":
